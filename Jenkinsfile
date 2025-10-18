@@ -20,12 +20,15 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'docker run --rm backend pytest || true'
+                echo 'Lancement des tests backend'
+                sh 'docker run --rm devops-ci-cd-backend pytest || true'
             }
         }
 
         stage('Deploy Containers') {
             steps {
+                echo 'Déploiement des conteneurs'
+                sh "${DOCKER_COMPOSE} down || true"
                 sh "${DOCKER_COMPOSE} up -d"
             }
         }
