@@ -40,14 +40,14 @@ pipeline {
             emailext (
                 subject: "✅ Build succeeded on Jenkins", 
                 body: "Everything is OK, your application has been successfully deployed", 
-                to: "rimelabed10@gmail.com" 
+                to: "***@gmail.com" 
             )
         }
         failure {
             emailext (
                 subject: "❌ Build has failed on Jenkins", 
                 body: "Build has failed. Verify the logs on Jenkins.", 
-                to: "rimelabed10@gmail.com" 
+                to: "***@gmail.com" 
             )
         }
     }
