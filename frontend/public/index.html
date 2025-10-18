@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rim EL abed | Computer science student | DevOps Enthusiast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, #1e1f29, #14151a);
+      color: #f1f1f1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      margin: 0;
+      color: #61dafb;
+      animation: fadeInDown 1.2s ease-in-out;
+    }
+
+    h2 {
+      font-weight: 400;
+      color: #a0aec0;
+      margin-top: 0.3em;
+      animation: fadeInDown 1.6s ease-in-out;
+    }
+
+    p {
+      max-width: 600px;
+      font-size: 1.2em;
+      color: #d1d5db;
+      margin: 1.5em 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2em 3em;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 15px rgba(97, 218, 251, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeUp 2.4s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(97, 218, 251, 0.5);
+    }
+
+    .api {
+      margin-top: 1.5em;
+      color: #61dafb;
+      font-weight: 600;
+      font-size: 1.1em;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      color: #666;
+      font-size: 0.9em;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 200px;
+      background: url('https://svgshare.com/i/11we.svg') repeat-x;
+      background-size: 50% 100%;
+      animation: wave 10s linear infinite;
+      opacity: 0.1;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hello from Rim 👋</h1>
+    <h2>Computer Science Student | DevOps Enthusiast</h2>
+    <p>
+      Passionate about <b>development</b>, <b>automation</b>, and building reliable CI/CD pipelines.<br>
+      This app runs on <b>Docker containers</b> (Node.js frontend + Flask backend).
+    </p>
+    <div class="api" id="apiMessage">Contacting backend...</div>
+  </div>
+
+  <div class="wave"></div>
+
+  <footer>© 2025 Rim EL abed — DevOps Project Demo</footer>
+
+  <script>
+    fetch("/api/hello")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("apiMessage").innerText =
+          `✅ Backend says: "${data.message}"`;
+      })
+      .catch(() => {
+        document.getElementById("apiMessage").innerText =
+          "⚠️ Backend not reachable at the moment.";
+      });
+  </script>
+</body>
+</html>
+
