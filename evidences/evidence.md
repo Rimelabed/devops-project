@@ -108,7 +108,7 @@ Containers deployed successfully.
 Sending email to: ********
 Finished: SUCCESS
 ```
-## 11. Metadata
+## 8. Metadata
 
 - Author: Rim El Abed
 
