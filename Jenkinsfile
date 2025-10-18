@@ -28,6 +28,7 @@ pipeline {
         stage('Deploy Containers') {
             steps {
                 echo 'Déploiement des conteneurs'
+                sh 'docker rm -f backend frontend || true'
                 sh "${DOCKER_COMPOSE} down || true"
                 sh "${DOCKER_COMPOSE} up -d"
             }
