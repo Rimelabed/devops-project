@@ -34,18 +34,6 @@ pipeline {
             }
         }
 
-        stage('Push to GitHub') {
-            steps {
-                sh '''
-                git config --global user.name "Rimelabed"
-                git config --global user.email "rimelabed10@example.com" 
-                git add .
-                git commit -m "Pipeline build and deploy"
-                git push origin main || true
-                '''
-            }
-        }
-    }
 
     post {
         success {
